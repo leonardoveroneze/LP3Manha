@@ -1,0 +1,17 @@
+﻿body {
+    background-color: black;
+    color: white;
+}
+
+p{
+    color:red;
+}
+
+.negrito{
+    font-weight: bold;
+}
+
+.amarelo{
+    color:yellow;
+    font-weight: normal;
+}
