@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form action="/usuario/create" method="post">
+        <div>
+            <label>Id</label>
+            <input type="text" name="UsuarioId" class="form-control" required /><br />
+        </div>
+        <div>
+            <label>Nome</label>
+            <input type="text" name="Nome" class="form-control" placeholder="Digite o nome completo" /><br />
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input type="email" name="Email" class="form-control" required /><br />
+        </div>
+        <div>
+            <label>Senha</label>
+            <input type="password" name="Senha" class="form-control" required /><br />
+        </div>
+        <button class="btn btn-success" type="submit">
+        <span class="glyphicon glyphicon-floppy-disk"></span>Salvar</button>
+
+
+    </form>
+</body>
+</html>

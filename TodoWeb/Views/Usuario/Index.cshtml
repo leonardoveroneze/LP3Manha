@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TodoWeb.Models.Usuario>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Senha</th>
+        </tr>
+
+        @foreach (var u in Model)
+
+        {
+        <tr>
+            <td>@u.UsuarioId</td>
+            <td>@u.Nome</td>
+            <td>@u.Email</td>
+            <td>@u.Senha</td>
+
+        </tr>
+        }
+    </table>
+    <a class="btn" href="/usuario/create">
+        <span class="glyphicon glyphicon-plus"></span>
+        Novo Usuário
+    </a>
+        </div>
+</body>
+</html>
