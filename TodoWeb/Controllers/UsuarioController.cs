@@ -21,7 +21,7 @@ namespace TodoWeb.Controllers
         //GET: Usuario/Index
         public ActionResult Index()
         {
-                return View(lista);
+            return View(lista);
         }
 
 
@@ -52,15 +52,67 @@ namespace TodoWeb.Controllers
         }
 
         // GET: Usuario/Update
-        public ActionResult Update()
+        public ActionResult Update(int id)
         {
-            return View();
+            Usuario user = null;
+
+            foreach (var u in lista)
+            {
+                if (u.UsuarioId == id)
+                {
+                    user = u;
+                    break;
+                }
+            }
+            return View(user);
+        }
+
+        // POST: Usuario/Update
+        [HttpPost]
+        public ActionResult Update(FormCollection form)
+        {
+            Usuario u = new Usuario();
+            u.Nome = form["Nome"];
+            u.UsuarioId = int.Parse(form["UsuarioId"]);
+            u.Email = form["Email"];
+
+            foreach (var x in lista)
+            {
+                if (x.UsuarioId == u.UsuarioId)
+                {
+                    x.Nome = form["Nome"];
+                    x.UsuarioId = int.Parse(form["UsuarioId"]);
+                    x.Email = form["Email"];
+                    return RedirectToAction("Index");
+                }
+            }
+
+            lista.Add(u);
+            return RedirectToAction("Index");
+
         }
 
         //GET: Usuario/Login
         public ActionResult Login()
         {
             return View();
+        }
+
+        //GET: Usuario/Delete
+        public ActionResult Delete(int id)
+        {
+            Usuario user = null;
+
+            foreach (var u in lista)
+            {
+                if (u.UsuarioId == id)
+                {
+                    lista.Remove(u);
+                    break;
+                }
+
+            }
+            return RedirectToAction("Index");
         }
     }
 

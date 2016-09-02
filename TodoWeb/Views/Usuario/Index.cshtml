@@ -19,6 +19,8 @@
             <th>Nome</th>
             <th>Email</th>
             <th>Senha</th>
+            <th>Ações</th>
+
         </tr>
 
         @foreach (var u in Model)
@@ -29,6 +31,16 @@
             <td>@u.Nome</td>
             <td>@u.Email</td>
             <td>@u.Senha</td>
+            <td>
+                <a href="/usuario/update/@u.UsuarioId" class="btn btn-primary btn-xs">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    Editar
+                </a>
+                <a href="/usuario/delete/@u.UsuarioId" class="btn btn-primary btn-xs">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    Deletar
+                </a>
+            </td>
 
         </tr>
         }

@@ -1,0 +1,36 @@
+﻿@model TodoWeb.Models.Usuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form action="/usuario/update" method="post">
+        <div>
+            <label>Id</label>
+            <input type="text" name="UsuarioId" class="form-control" value="@Model.UsuarioId" /><br />
+        </div>
+        <div>
+            <label>Nome</label>
+            <input type="text" name="Nome" class="form-control" placeholder="Digite o nome completo" value="@Model.Nome"/><br />
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input type="email" name="Email" class="form-control" value="@Model.Email" /><br />
+        </div>
+        
+        <button class="btn btn-success" type="submit">
+        <span class="glyphicon glyphicon-floppy-disk"></span>Salvar</button>
+
+
+    </form>
+</body>
+</html>
